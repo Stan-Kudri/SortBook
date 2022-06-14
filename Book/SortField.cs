@@ -1,6 +1,6 @@
 ﻿namespace SortBook
 {
-    public enum SortByParameter
+    public enum SortField
     {
         Name,
         Author,

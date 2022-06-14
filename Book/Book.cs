@@ -6,14 +6,11 @@
         private readonly string _author;
         private readonly string _publishingHouse;
 
-        public string Name => _name;
-        public string Author => _author;
-        public string PublishingHouse => _publishingHouse;
 
         public Book(string name, string author, string publishingHouse)
         {
             if (name == null || author == null || publishingHouse == null)
-                throw new ArgumentNullException(nameof(name));
+                throw new ArgumentNullException("Существует параметр(ы) равные null");
             _name = name;
             _author = author;
             _publishingHouse = publishingHouse;
@@ -36,7 +33,7 @@
 
         public override string ToString()
         {
-            return $"{Name} - {Author}  -  {PublishingHouse}";
+            return $"{_name} - {_author}  -  {_publishingHouse}";
         }
     }
 }

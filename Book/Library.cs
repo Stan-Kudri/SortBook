@@ -16,25 +16,31 @@
                 Books[i] = books[i];
         }
 
-        public Book[] Triage(SortByParameter parameter)
+        public Book[] Triage(SortField sortOption)
         {
-            switch (parameter)
+            switch (sortOption)
             {
-                case SortByParameter.Name:
+                case SortField.Name:
                     Array.Sort(Books, Book.CompareByName);
                     return Books;
-                case SortByParameter.Author:
+                case SortField.Author:
                     Array.Sort(Books, Book.CompareByAuthor);
                     return Books;
-                case SortByParameter.PublishingHouse:
+                case SortField.PublishingHouse:
                     Array.Sort(Books, Book.CompareByPublishingHouse);
                     return Books;
             }
 
             throw new ArgumentException("Сортировки такой нет.");
         }
+
+        public Book[] SortByCompareOption(CompareBookDelegate option)
+        {
+            Array.Sort(Books, option.Invoke);
+            return Books;
+        }
     }
 
-    //public delegate int CompareBookDelegate(Book first, Book second);
+    public delegate int CompareBookDelegate(Book first, Book second);
 
 }
