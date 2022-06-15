@@ -25,15 +25,6 @@ PrintArray(list);
 
 var library = new Library(list);
 
-var librarySortByName = library.Triage(SortField.Name);
-PrintArray(librarySortByName);
-
-var librarySortByAuthor = library.Triage(SortField.Author);
-PrintArray(librarySortByAuthor);
-
-var librarySortByPublishingHouse = library.Triage(SortField.PublishingHouse);
-PrintArray(librarySortByPublishingHouse);
-
 var librarySort = library.SortByCompareOption(Book.CompareByAuthor);
 PrintArray(librarySort);
 

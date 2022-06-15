@@ -9,8 +9,9 @@
 
         public Book(string name, string author, string publishingHouse)
         {
-            if (name == null || author == null || publishingHouse == null)
-                throw new ArgumentNullException("Существует параметр(ы) равные null");
+            ArgumentNullException.ThrowIfNull(name, "Название книги рвно null.");
+            ArgumentNullException.ThrowIfNull(author, "Имя автора книги рвно null.");
+            ArgumentNullException.ThrowIfNull(publishingHouse, "Издательство книги рвно null.");
             _name = name;
             _author = author;
             _publishingHouse = publishingHouse;

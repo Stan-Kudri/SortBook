@@ -16,24 +16,6 @@
                 Books[i] = books[i];
         }
 
-        public Book[] Triage(SortField sortOption)
-        {
-            switch (sortOption)
-            {
-                case SortField.Name:
-                    Array.Sort(Books, Book.CompareByName);
-                    return Books;
-                case SortField.Author:
-                    Array.Sort(Books, Book.CompareByAuthor);
-                    return Books;
-                case SortField.PublishingHouse:
-                    Array.Sort(Books, Book.CompareByPublishingHouse);
-                    return Books;
-            }
-
-            throw new ArgumentException("Сортировки такой нет.");
-        }
-
         public Book[] SortByCompareOption(CompareBookDelegate option)
         {
             Array.Sort(Books, option.Invoke);
